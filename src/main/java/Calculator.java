@@ -36,4 +36,22 @@ public class Calculator {
         }
         return a / b;
     }
+    public double puissance(double a, double b) {
+        return Math.pow(a, b);
+    }
+
+    public double racineCarree(double a) {
+        if (a < 0) {
+            throw new ArithmeticException("Racine carrée d'un nombre négatif");
+        }
+        return Math.sqrt(a);
+    }
+
+    public double sinus(double a) {
+        return Math.sin(Math.toRadians(a));
+    }
+
+    public double cosinus(double a) {
+        return Math.cos(Math.toRadians(a));
+    }
 }

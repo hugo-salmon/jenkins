@@ -1,5 +1,5 @@
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.testng.annotations.Test;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class CalculatorTest {
 
@@ -52,7 +52,7 @@ public class CalculatorTest {
         assertEquals(4, result);
     }
 
-    @Test(expected = ArithmeticException.class)
+    @Test(expectedExceptions = ArithmeticException.class)
     public void testDivisionEntiersParZero() {
         Calculator calculator = new Calculator();
         calculator.divisionEntiers(5, 0);
@@ -65,9 +65,43 @@ public class CalculatorTest {
         assertEquals(2.0, result, 0.001);
     }
 
-    @Test(expected = ArithmeticException.class)
+    @Test(expectedExceptions = ArithmeticException.class)
     public void testDivisionDoublesParZero() {
         Calculator calculator = new Calculator();
         calculator.divisionDoubles(14.0, 0.0);
+    }
+
+    @Test
+    public void testPuissance() {
+        Calculator calculator = new Calculator();
+        double result = calculator.puissance(2, 3);
+        assertEquals(8.0, result, 0.001);
+    }
+
+    @Test
+    public void testRacineCarree() {
+        Calculator calculator = new Calculator();
+        double result = calculator.racineCarree(25);
+        assertEquals(5.0, result, 0.001);
+    }
+
+    @Test(expectedExceptions = ArithmeticException.class)
+    public void testRacineCarreeNombreNegatif() {
+        Calculator calculator = new Calculator();
+        calculator.racineCarree(-1);
+    }
+
+    @Test
+    public void testSinus() {
+        Calculator calculator = new Calculator();
+        double result = calculator.sinus(30);
+        assertEquals(0.5, result, 0.001);
+    }
+
+    @Test
+    public void testCosinus() {
+        Calculator calculator = new Calculator();
+        double result = calculator.cosinus(60);
+        assertEquals(0.5, result, 0.001);
     }
 }
